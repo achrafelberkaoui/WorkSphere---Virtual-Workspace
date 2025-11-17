@@ -1,28 +1,118 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     justify-content: flex-end;
     background-color: rgb(186, 186, 186);
 }
 
-main {
-    width: 70vw;
+
+
+.containare {
+    width: 80vw;
     height: 100vh;
     background-image: url(img/background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     margin: 5px;
+    margin: 5px;
 }
+
 aside {
-    width: 30vw;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 98vh;
+    margin-left: 10px;
     background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
 
 }
+
+.title_bar {
+    margin: 10px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+
+}
+
+.addWorker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 30px;
+    color: white;
+    background-color: rgb(44, 176, 44);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form-group img {
+    width: 50px;
+    height: auto;
+    border: 1px dotted black;
+    border-radius: 100%;
+
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.form {
+    width: 50%;
+    height: 60%;
+    background-color: rgb(201, 201, 201);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.containareForm {
+    display: none;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.form__label {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(1, 1, 103);
+}
+
+.Experiences{
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.workerBar{
+    font-size: 200;
+    border: 2px solid;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: aqua;
+    padding: 10px;
+}
+
