@@ -9,78 +9,125 @@
 </head>
 
 <body>
+
+    <!-- SIDE BAR -->
     <aside>
-        <h1 class="title_bar">Staff Members (Unssigned)</h1>
+        <h1 class="title_bar">Staff Members (Unassigned)</h1>
         <div class="worker" id="workerId"></div>
-        <button class="addWorker" id="add_Worker"> Add New Worker </button>
+        <button class="addWorker" id="add_Worker">Add New Worker</button>
     </aside>
 
-    <main class="containare">    
-    <section class="containareForm" id="work-form" >
-    <form class="form">
+    <!-- MAIN AREA -->
+    <main class="container">
+        <!-- Modal Postes -->
+        <section id="addPostes">
+            <div class="postes">
+                <div class="poste1">
+                    <div class="workerPlaces">
+                        <p>Réception</p>
+                        <!-- <div class="PosteWorker">
+                            <img class="icon" src="img/iconParDefault.jpg" alt="">
+                            <div>
+                                <p>achraf</p>
+                                <p>Role</p>
+                            </div>
+                        </div> -->
+                    </div>
 
-            <!-- Name -->
-            <div class="form__group">
-                <label class="form__label" for="work-name">Name :</label>
-                <input type="text" id="work-name" class="input" placeholder="Enter worker name" required>
-            </div>
-
-            <!-- Role -->
-            <div class="form__group">
-                <label class="form__label" for="Role">Role :</label>
-                <input type="text" id="Role" class="input" placeholder="IT ..."></input>
-            </div>
-            <!-- Image URL -->
-            <div class="form__group">
-                <label class="form__label" for="worker-image">Image URL</label>
-                <input type="url" id="worker-image" class="input" placeholder="https://example.com/image.jpg">
-            </div>
-
-            <!-- Photo Preview  -->
-            <div class="form-group">
-                <span class="icon"></span>
-                <img src="img/iconParDefault.jpg" alt="Photo">
-            </div>
-
-            <!-- Company
-            <div class="form__group">
-                <label class="form__label" for="Company">Company</label>
-                <input type="text" id="Company" class="input" placeholder="youcode" required>
-            </div>
-            -->
-
-            <!-- tele -->
-            <div class="form__group">
-                <label class="form__label" for="tele">Téléphone</label>
-                <input type="number" id="tele" class="input" placeholder="+212 600000000" min="1" required>
-            </div>
-
-            <!-- Email -->
-            <div class="form__group">
-                <label class="form__label" for="email">Email</label>
-                <input type="email" id="email" class="input" placeholder="example@example.com" required>
-            </div>
-
-            <!-- Experiences -->
-            <fieldset class="Experiences">
-                <legend class="Experience">Experiences
-                    <button type="button" class="btnExperience" id="btn-add-experience">+ Add Experience</button>
-                </legend>
-
-                <div id="experiences-list" class="experiences__list">
-
+                    <button>+</button>
                 </div>
-            </fieldset>
 
-            <!-- Submit Button -->
-            <div class="form__actions">
-                <button type="submit" id="creat" class="btnSubbmit">Add Worker</button>
-                <button type="button" id="cancel">Cancel</button>
+                <div class="poste2">
+                    <div class="workerPlaces">
+                        <p>Salle des serveurs</p>
+                    </div>
+                    <button>+</button>
+                </div>
+                <div class="poste3">
+                    <div class="workerPlaces">
+                        <p>Salle de sécurité</p>
+                    </div>
+                    <button>+</button>
+                </div>
+                <div class="poste4">
+                    <div class="workerPlaces">
+                        <p>Manager</p>
+                    </div>
+                    <button>+</button>
+                </div>
+                <div class="poste5">
+                    <div class="workerPlaces">
+                        <p>Nettoyage</p>
+                    </div>
+                    <button>+</button>
+                </div>
+                <div class="poste6">
+                    <div class="workerPlaces">
+                        <p>Autres rôles</p>
+                    </div>
+                    <button>+</button>
+                </div>
             </div>
-        </form>
-    </section>
+        </section>
+
+        <!-- FORM SECTION -->
+        <section class="containerForm" id="work-form">
+            <form class="form">
+
+                <!-- NAME -->
+                <div class="form__group">
+                    <label class="form__label" for="work-name">Name :</label>
+                    <input type="text" id="work-name" class="input" placeholder="Enter worker name" required>
+                </div>
+
+                <!-- ROLE -->
+                <div class="form__group">
+                    <label class="form__label" for="Role">Role :</label>
+                    <select id="Role" class="input" required>
+                        <option value="">-- Select Role --</option>
+                        <option value="manager">Manager</option>
+                        <option value="receptionist">Receptionniste</option>
+                        <option value="it">Technicien IT</option>
+                        <option value="security">Agent de sécurité</option>
+                        <option value="cleaning">Nettoyage</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+
+                <!-- IMAGE URL -->
+                <div class="form__group">
+                    <label class="form__label" for="worker-image">Image URL</label>
+                    <input type="url" id="worker-image" class="input" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <!-- PHOTO PREVIEW -->
+                <div class="form__group">
+                    <img src="img/iconParDefault.jpg" alt="Photo">
+                </div>
+
+                <!-- TELEPHONE -->
+                <div class="form__group">
+                    <label class="form__label" for="tele">Téléphone</label>
+                    <input type="number" id="tele" class="input" placeholder="+212 600000000" min="1" required>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form__group">
+                    <label class="form__label" for="email">Email</label>
+                    <input type="email" id="email" class="input" placeholder="example@example.com" required>
+                </div>
+                <!-- BUTTONS -->
+                <div class="form__actions">
+                    <button type="submit" id="creat" class="btnSubbmit">Add Worker</button>
+                    <button type="button" class="cancel" id="cancel">Cancel</button>
+                </div>
+
+            </form>
+        </section>
+
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
