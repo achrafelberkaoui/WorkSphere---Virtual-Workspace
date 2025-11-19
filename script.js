@@ -113,15 +113,34 @@ function addInBar() {
       </div>
     `;
     asideBar.appendChild(workerDiv);
+
+    //Detaills
+    workerDiv.addEventListener("click", function () {
+      document.getElementById("modaldetails").style.display = "flex";
+      document.getElementById("modalTel").textContent = "TELE :" + wr.teleWorker;
+      document.getElementById("modalEmail").textContent = "EMAIL :" + wr.emailWorker;
+      document.getElementById("modalRole").textContent = "ROLE :" + wr.RoleWorker;
+      document.getElementById("modalName").textContent = wr.nameWorker;
+      document.getElementById("modalPhoto").src = wr.photoWorker;
+
+      const expDiv = document.getElementById("modalExperience");
+      expDiv.innerHTML = "<h4>Experiences:</h4>";
+      const exp = wr.experience;
+      expDiv.innerHTML += `<p> company : ${exp.company}</p> <p>Role: ${exp.role}</p> <p>Form: ${exp.from}</p> <p>To: ${exp.to}</p>`;
+    });
+  });
+
+  document.getElementById("close").addEventListener("click", () => {
+    document.getElementById("modaldetails").style.display = "none";
   });
 }
 
 imgInput.addEventListener("input", function () {
-    if (imgInput.value.trim() !=="") {
-        imgPreview.src = imgInput.value;
-    } else {
-        imgPreview.src = "img/iconParDefault.jpg"
-    }
+  if (imgInput.value.trim() !== "") {
+    imgPreview.src = imgInput.value;
+  } else {
+    imgPreview.src = "img/iconParDefault.jpg"
+  }
 })
 
 // Add Experience
@@ -157,8 +176,3 @@ btnAddExperience.addEventListener("click", () => {
     newExp.remove();
   });
 });
-const detail = document.querySelectorAll(".add_Worker");
-
-detail.addEventListener("click", (e)=>{
-    e.preventDefault;
-})
