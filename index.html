@@ -102,13 +102,31 @@
 
                 <!-- PHOTO PREVIEW -->
                 <div class="form__group">
-                    <img src="img/iconParDefault.jpg" alt="Photo">
+                    <img id="preview" src="img/iconParDefault.jpg" alt="Photo">
+                </div>
+
+                <!-- EXPERIENCE -->
+                <div class="form__group" id="experience-container">
+                    <label class="form__label">Experiences :</label>
+                    <div class="experience-row">
+                        <label for="Company">Company :</label>
+                        <input type="text" id="Company" class="experience-title input" placeholder="Title / Company"
+                            required>
+                        <label for="expRole">Role :</label>
+                        <input type="text" id="expRole" class="experience-role input" placeholder="Reseption"
+                            required>
+                        <label for="From">From :</label>
+                        <input type="date" id="From" class="experience-start" required>
+                        <label for="to">To :</label>
+                        <input type="date" id="to" class="experience-end" required>
+                    </div>
+                    <button type="button" id="add-experience">Add Another Experience</button>
                 </div>
 
                 <!-- TELEPHONE -->
                 <div class="form__group">
                     <label class="form__label" for="tele">Téléphone</label>
-                    <input type="number" id="tele" class="input" placeholder="+212 600000000" min="1" required>
+                    <input type="text" id="tele" class="input" placeholder="+212 600000000" min="1" required>
                 </div>
 
                 <!-- EMAIL -->
