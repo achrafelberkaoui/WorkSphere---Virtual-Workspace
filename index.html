@@ -21,51 +21,51 @@
     <main class="container">
         <!-- Modal Postes -->
         <section class="postes" id="addPostes">
-                <div class="poste1">
-                    <div class="workerPlaces">
-                        <p>Réception</p>
-                        <!-- <div class="PosteWorker">
+            <div class="poste1">
+                <div class="workerPlaces">
+                    <p>Réception</p>
+                    <!-- <div class="PosteWorker">
                             <img class="icon" src="img/iconParDefault.jpg" alt="">
                             <div>
                                 <p>achraf</p>
                                 <p>Role</p>
                             </div>
                         </div> -->
-                    </div>
-
-                    <button>+</button>
                 </div>
 
-                <div class="poste2">
-                    <div class="workerPlaces">
-                        <p>Salle des serveurs</p>
-                    </div>
-                    <button>+</button>
+                <button>+</button>
+            </div>
+
+            <div class="poste2">
+                <div class="workerPlaces">
+                    <p>Salle des serveurs</p>
                 </div>
-                <div class="poste3">
-                    <div class="workerPlaces">
-                        <p>Salle de sécurité</p>
-                    </div>
-                    <button>+</button>
+                <button>+</button>
+            </div>
+            <div class="poste3">
+                <div class="workerPlaces">
+                    <p>Salle de sécurité</p>
                 </div>
-                <div class="poste4">
-                    <div class="workerPlaces">
-                        <p>Manager</p>
-                    </div>
-                    <button>+</button>
+                <button>+</button>
+            </div>
+            <div class="poste4">
+                <div class="workerPlaces">
+                    <p>Manager</p>
                 </div>
-                <div class="poste5">
-                    <div class="workerPlaces">
-                        <p>Nettoyage</p>
-                    </div>
-                    <button>+</button>
+                <button>+</button>
+            </div>
+            <div class="poste5">
+                <div class="workerPlaces">
+                    <p>Nettoyage</p>
                 </div>
-                <div class="poste6">
-                    <div class="workerPlaces">
-                        <p>Autres rôles</p>
-                    </div>
-                    <button>+</button>
+                <button>+</button>
+            </div>
+            <div class="poste6">
+                <div class="workerPlaces">
+                    <p>Autres rôles</p>
                 </div>
+                <button>+</button>
+            </div>
         </section>
 
         <!-- FORM SECTION -->
@@ -111,8 +111,7 @@
                         <input type="text" id="Company" class="experience-title input" placeholder="Title / Company"
                             required>
                         <label for="expRole">Role :</label>
-                        <input type="text" id="expRole" class="experience-role input" placeholder="Reseption"
-                            required>
+                        <input type="text" id="expRole" class="experience-role input" placeholder="Reseption" required>
                         <label for="From">From :</label>
                         <input type="date" id="From" class="experience-start" required>
                         <label for="to">To :</label>
@@ -139,6 +138,18 @@
                 </div>
 
             </form>
+        </section>
+
+        <section id="modaldetails" class="modaldetails">
+            <div class="content">
+                <button id="close" class="close">X</button>
+                <img id="modalPhoto" src="" alt="Photo" style="width:80px; height:80px; border-radius:50%;">
+                <h3 id="modalName"></h3>
+                <p id="modalRole"></p>
+                <p id="modalEmail"></p>
+                <p id="modalTel"></p>
+                <div id="modalExperience"></div>
+            </div>
         </section>
 
     </main>
