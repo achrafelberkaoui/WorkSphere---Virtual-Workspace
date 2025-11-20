@@ -21,7 +21,7 @@
     <main class="container">
         <!-- Modal Postes -->
         <section class="postes" id="addPostes">
-            <div class="poste1">
+            <div class="poste1" id="poste1">
                 <div class="workerPlaces">
                     <p>Réception</p>
                     <!-- <div class="PosteWorker">
@@ -33,38 +33,38 @@
                         </div> -->
                 </div>
 
-                <button class="btnAdd">+</button>
+                <button class="assignBtn" data-role="receptionist" data-target="poste1">+</button>
             </div>
 
-            <div class="poste2">
+            <div class="poste2" id="poste2">
                 <div class="workerPlaces">
                     <p>Salle des serveurs</p>
                 </div>
-                <button class="btnAdd">+</button>
+                <button class="assignBtn" data-role="it" data-target="poste2">+</button>
             </div>
-            <div class="poste3">
+            <div class="poste3" id="poste3">
                 <div class="workerPlaces">
                     <p>Salle de sécurité</p>
                 </div>
-                <button class="btnAdd">+</button>
+                <button class="assignBtn" data-role="security" data-target="poste3">+</button>
             </div>
-            <div class="poste4">
+            <div class="poste4" id="poste4">
                 <div class="workerPlaces">
                     <p>Manager</p>
                 </div>
-                <button class="btnAdd">+</button>
+                <button class="assignBtn" data-role="manager" data-target="poste4">+</button>
             </div>
-            <div class="poste5">
+            <div class="poste5" id="poste5">
                 <div class="workerPlaces">
                     <p>Nettoyage</p>
                 </div>
-                <button class="btnAdd">+</button>
+                <button class="assignBtn" data-role="cleaning" data-target="poste5">+</button>
             </div>
-            <div class="poste6">
+            <div class="poste6" id="poste6">
                 <div class="workerPlaces">
                     <p>Autres rôles</p>
                 </div>
-                <button class="btnAdd">+</button>
+                <button class="assignBtn" data-role="other" data-target="poste6">+</button>
             </div>
         </section>
 
@@ -142,22 +142,26 @@
         <!-- Modal Details -->
         <section id="modaldetails" class="modaldetails">
             <div id="content"></div>
-                <button id="close" class="close">X</button>
-                <img id="modalPhoto" src="" alt="Photo" style="width:80px; height:80px; border-radius:50%;">
-                <h3 id="modalName"></h3>
-                <p id="modalRole"></p>
-                <p id="modalEmail"></p>
-                <p id="modalTel"></p>
-                <div id="modalExperience">
-                </div>
+            <button id="close" class="close">X</button>
+            <img id="modalPhoto" src="" alt="Photo" style="width:80px; height:80px; border-radius:50%;">
+            <h3 id="modalName"></h3>
+            <p id="modalRole"></p>
+            <p id="modalEmail"></p>
+            <p id="modalTel"></p>
+            <div id="modalExperience">
+            </div>
         </section>
 
-        <!-- Modal  -->
-         <section class="containerModal">
-            <div id="modalAdd" class="modalAdd">
-
+        <!-- assignModal  -->
+        <section id="assignModal" class="assignModal">
+            <div class="assignBox">
+                <span id="closeAssign" class="closeAssign">X</span>
+                <h3>Choisir Worker</h3>
+                <div id="assignList"></div>
             </div>
-         </section>
+        </section>
+        </div>
+
 
     </main>
 
