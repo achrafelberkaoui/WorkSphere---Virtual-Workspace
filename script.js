@@ -1,5 +1,5 @@
 const workers = [];
-const experiences = [];
+// const experiences = [];
 const btnAdd = document.getElementById("add_Worker");
 const formContainer = document.getElementById("work-form");
 const btnCancel = document.getElementById("cancel");
@@ -100,7 +100,6 @@ btnAddSubmit.addEventListener("click", (e) => {
 function addInBar() {
   const asideBar = document.getElementById("workerId");
   asideBar.innerHTML = "";
-        modalAdd.innerHTML = ""; //Modal
 
   workers.forEach((wr) => {
     const workerDiv = document.createElement("div");
@@ -114,8 +113,6 @@ function addInBar() {
       </div>
     `;
     asideBar.appendChild(workerDiv);
-    const po = workerDiv.cloneNode(true);
-    modalAdd.appendChild(po);
 
     //Detaills
     workerDiv.addEventListener("click", function () {
@@ -183,4 +180,47 @@ btnAddExperience.addEventListener("click", () => {
   rmbtn.addEventListener("click", () => {
     newExp.remove();
   });
+});
+
+// Add Worker in Zone
+
+const affAssign = document.getElementById("assignModal")
+document.querySelectorAll(".assignBtn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const clickId = btn.dataset.target;
+    const zone = document.getElementById(clickId);
+    const place = document.getElementById("assignList")
+
+    place.innerHTML = "";
+
+    const workerDisponible = workers.filter(w => w.RoleWorker === btn.dataset.role);
+
+
+    workerDisponible.forEach(w => {
+      const workerDisp = document.createElement("div");
+      workerDisp.classList.add("workerBar");
+
+      workerDisp.innerHTML = `
+    <img src="${w.photoWorker}" alt="Photo" style="width:40px; height:40px; border-radius:50%;">
+      <div>
+      <div><strong>${w.nameWorker}</strong></div>
+      <div>${w.RoleWorker}</div>
+      </div>
+    `;
+
+      workerDisp.addEventListener("click", () => {
+        const zonePlace = zone.querySelector(".workerPlaces");
+        zonePlace.appendChild(workerDisp.cloneNode(true));
+        affAssign.style.display = "none";
+      });
+      place.appendChild(workerDisp);
+    });
+    affAssign.style.display = "flex";
+
+  });
+});
+
+const closeLi = document.getElementById("closeAssign");
+closeLi.addEventListener("click", () => {
+  affAssign.style.display = "none";
 });
