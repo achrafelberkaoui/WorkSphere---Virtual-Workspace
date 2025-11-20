@@ -100,6 +100,7 @@ btnAddSubmit.addEventListener("click", (e) => {
 function addInBar() {
   const asideBar = document.getElementById("workerId");
   asideBar.innerHTML = "";
+        modalAdd.innerHTML = ""; //Modal
 
   workers.forEach((wr) => {
     const workerDiv = document.createElement("div");
@@ -113,13 +114,20 @@ function addInBar() {
       </div>
     `;
     asideBar.appendChild(workerDiv);
+    const po = workerDiv.cloneNode(true);
+    modalAdd.appendChild(po);
 
     //Detaills
     workerDiv.addEventListener("click", function () {
+      const detDiv = document.getElementById("content");
+      detDiv.innerHTML = " <h2>Détaills</h2> ";
       document.getElementById("modaldetails").style.display = "flex";
-      document.getElementById("modalTel").textContent = "TELE :" + wr.teleWorker;
-      document.getElementById("modalEmail").textContent = "EMAIL :" + wr.emailWorker;
-      document.getElementById("modalRole").textContent = "ROLE :" + wr.RoleWorker;
+      document.getElementById("modalTel").textContent =
+        "TELE :" + wr.teleWorker;
+      document.getElementById("modalEmail").textContent =
+        "EMAIL :" + wr.emailWorker;
+      document.getElementById("modalRole").textContent =
+        "ROLE :" + wr.RoleWorker;
       document.getElementById("modalName").textContent = wr.nameWorker;
       document.getElementById("modalPhoto").src = wr.photoWorker;
 
@@ -139,9 +147,9 @@ imgInput.addEventListener("input", function () {
   if (imgInput.value.trim() !== "") {
     imgPreview.src = imgInput.value;
   } else {
-    imgPreview.src = "img/iconParDefault.jpg"
+    imgPreview.src = "img/iconParDefault.jpg";
   }
-})
+});
 
 // Add Experience
 const experienceContainer = document.getElementById("experience-row");
