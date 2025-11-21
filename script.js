@@ -1,5 +1,5 @@
 const workers = [];
-// const experiences = [];
+const zones = [];
 const btnAdd = document.getElementById("add_Worker");
 const formContainer = document.getElementById("work-form");
 const btnCancel = document.getElementById("cancel");
@@ -100,13 +100,13 @@ btnAddSubmit.addEventListener("click", (e) => {
 function addInBar() {
   const asideBar = document.getElementById("workerId");
   asideBar.innerHTML = "";
-
-  workers.forEach((wr) => {
+  const withoutZone = workers.filter((w) => !w.zone);
+  withoutZone.forEach((wr) => {
     const workerDiv = document.createElement("div");
     workerDiv.setAttribute("id", wr.id);
     workerDiv.classList.add("workerBar");
     workerDiv.innerHTML = `
-    <img src="${wr.photoWorker}" alt="Photo" style="width:40px; height:40px; border-radius:50%;">
+    <img src="${wr.photoWorker}" alt="Photo" style="width:20px; height:20px; border-radius:50%;">
       <div>
       <div><strong>${wr.nameWorker}</strong></div>
       <div>${wr.RoleWorker}</div>
@@ -184,39 +184,48 @@ btnAddExperience.addEventListener("click", () => {
 
 // Add Worker in Zone
 
-const affAssign = document.getElementById("assignModal")
-document.querySelectorAll(".assignBtn").forEach(btn => {
+const affAssign = document.getElementById("assignModal");
+document.querySelectorAll(".assignBtn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const clickId = btn.dataset.target;
     const zone = document.getElementById(clickId);
-    const place = document.getElementById("assignList")
+    const place = document.getElementById("assignList");
 
     place.innerHTML = "";
 
-    const workerDisponible = workers.filter(w => w.RoleWorker === btn.dataset.role);
+    const workerDisponible = workers.filter(
+      (w) =>
+        (w.RoleWorker === btn.dataset.role ||
+          w.RoleWorker === btn.dataset.role2 ||
+          w.RoleWorker === btn.dataset.role3) &&
+        !w.zone
+    );
+    console.log(btn.dataset.role);
 
-
-    workerDisponible.forEach(w => {
+    workerDisponible.forEach((w, index) => {
       const workerDisp = document.createElement("div");
       workerDisp.classList.add("workerBar");
 
       workerDisp.innerHTML = `
-    <img src="${w.photoWorker}" alt="Photo" style="width:40px; height:40px; border-radius:50%;">
+      <img src="${w.photoWorker}" alt="Photo" style="width:20px; height:20px; border-radius:50%;"/>
       <div>
-      <div><strong>${w.nameWorker}</strong></div>
-      <div>${w.RoleWorker}</div>
+        <div><strong>${w.nameWorker}</strong></div>
+        <div>${w.RoleWorker}</div>
       </div>
+      <button class="deleList" onclick ="deletWoreker(${index})">X</button>
     `;
-
       workerDisp.addEventListener("click", () => {
         const zonePlace = zone.querySelector(".workerPlaces");
-        zonePlace.appendChild(workerDisp.cloneNode(true));
+        zonePlace.appendChild(workerDisp);
+        w.zone = zonePlace.querySelector("p").textContent;
+        zones.push(w.zone)
         affAssign.style.display = "none";
+        addInBar();
+        document.querySelector(".deleList").style.display = "block";
       });
       place.appendChild(workerDisp);
     });
     affAssign.style.display = "flex";
-
   });
 });
 
@@ -224,3 +233,15 @@ const closeLi = document.getElementById("closeAssign");
 closeLi.addEventListener("click", () => {
   affAssign.style.display = "none";
 });
+
+// function deletWoreker(index){
+//   console.log(index)
+// zones.findIndex(e => e.index == index)
+// e.zone;
+//   console.log(index)
+
+//   e.zone = null;
+// addInBar(index);
+// }
+
+
