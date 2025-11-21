@@ -1,5 +1,4 @@
 const workers = [];
-const zones = [];
 const btnAdd = document.getElementById("add_Worker");
 const formContainer = document.getElementById("work-form");
 const btnCancel = document.getElementById("cancel");
@@ -47,7 +46,6 @@ btnAddSubmit.addEventListener("click", (e) => {
   const nameRegex = /^[A-Za-z\s]+$/;
   const emailRegex = /^\S+@\S+\.\S+$/;
   const teleRegex = /^(?:\+212|0)[6-7]\d{8}$/;
-  const imgRegex = /^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i;
 
   //Validation
   if (!nameRegex.test(nameInput)) {
@@ -59,10 +57,6 @@ btnAddSubmit.addEventListener("click", (e) => {
     return;
   }
 
-  if (imgUrl && !imgRegex.test(imgUrl)) {
-    alert("URL d'image invalide !");
-    return;
-  }
   if (!teleRegex.test(teleInput)) {
     alert("Telephone invalide !");
     return;
@@ -202,7 +196,7 @@ document.querySelectorAll(".assignBtn").forEach((btn) => {
     );
     console.log(btn.dataset.role);
 
-    workerDisponible.forEach((w, index) => {
+    workerDisponible.forEach((w) => {
       const workerDisp = document.createElement("div");
       workerDisp.classList.add("workerBar");
 
@@ -212,17 +206,25 @@ document.querySelectorAll(".assignBtn").forEach((btn) => {
         <div><strong>${w.nameWorker}</strong></div>
         <div>${w.RoleWorker}</div>
       </div>
-      <button class="deleList" onclick ="deletWoreker(${index})">X</button>
+      <button class="deleList" data-id="${w.id}">X</button>
     `;
-      workerDisp.addEventListener("click", () => {
+      workerDisp.addEventListener("click", (e) => {
+        if(e.target.classList.contains("deleList")){
+          return;
+        }
         const zonePlace = zone.querySelector(".workerPlaces");
         zonePlace.appendChild(workerDisp);
-        w.zone = zonePlace.querySelector("p").textContent;
-        zones.push(w.zone)
+        w.zone = zone.id;
         affAssign.style.display = "none";
         addInBar();
-        document.querySelector(".deleList").style.display = "block";
+                workerDisp.querySelector(".deleList").style.display = "block";
       });
+      const btnDelet = workerDisp.querySelector(".deleList");
+      btnDelet.addEventListener("click", function(e){
+        e.stopPropagation();
+        const id = btnDelet.dataset.id;
+        deletWoreker(id);
+      })
       place.appendChild(workerDisp);
     });
     affAssign.style.display = "flex";
@@ -234,14 +236,20 @@ closeLi.addEventListener("click", () => {
   affAssign.style.display = "none";
 });
 
-// function deletWoreker(index){
-//   console.log(index)
-// zones.findIndex(e => e.index == index)
-// e.zone;
-//   console.log(index)
 
-//   e.zone = null;
-// addInBar(index);
-// }
+function deletWoreker(id){
+  console.log("id1",id)
+  const worker = workers.find(w => w.id == id);
+    console.log("id2",id)
+  if(!worker){
+    return;
+  }
+  worker.zone = null;
+  addInBar();
+  const wokerDE = document.querySelector(`button[data-id ="${id}"]`);
+  if(wokerDE){
+    wokerDE.parentElement.remove();
+  }
+}
 
 
