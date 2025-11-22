@@ -47,7 +47,6 @@ btnAddSubmit.addEventListener("click", (e) => {
   const nameRegex = /^[A-Za-z\s]+$/;
   const emailRegex = /^\S+@\S+\.\S+$/;
   const teleRegex = /^(?:\+212|0)[6-7]\d{8}$/;
-  const imgRegex = /^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i;
 
   //Validation
   if (!nameRegex.test(nameInput)) {
@@ -75,6 +74,11 @@ btnAddSubmit.addEventListener("click", (e) => {
 
   if (!company || !expRole || !fromDate || !toDate) {
     alert("Veuillez remplir une expérience !");
+    return;
+  }
+
+  if (fromDate > toDate) {
+    alert("Date error: La date de début doit être avant la date de fin !");
     return;
   }
 
@@ -117,11 +121,11 @@ function addInBar() {
 }
 
 imgInput.addEventListener("input", function () {
-    if (imgInput.value.trim() !=="") {
-        imgPreview.src = imgInput.value;
-    } else {
-        imgPreview.src = "img/iconParDefault.jpg"
-    }
+  if (imgInput.value.trim() !== "") {
+    imgPreview.src = imgInput.value;
+  } else {
+    imgPreview.src = "img/iconParDefault.jpg"
+  }
 })
 
 // Add Experience
@@ -159,6 +163,6 @@ btnAddExperience.addEventListener("click", () => {
 });
 const detail = document.querySelectorAll(".add_Worker");
 
-detail.addEventListener("click", (e)=>{
-    e.preventDefault;
+detail.addEventListener("click", (e) => {
+  e.preventDefault;
 })
