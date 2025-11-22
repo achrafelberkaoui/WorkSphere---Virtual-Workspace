@@ -219,6 +219,7 @@ document.querySelectorAll(".assignBtn").forEach((btn) => {
         }
         const zonePlace = zone.querySelector(".workerPlaces");
         zonePlace.appendChild(workerDisp);
+        updateZoneBackground(zone); // backgroud red
         w.zone = zone.id;
         affAssign.style.display = "none";
         addInBar();
@@ -258,3 +259,20 @@ function deletWoreker(id){
 }
 
 
+// Function to check and update zone background
+function updateZoneBackground(zone) {
+  const workerPlaces = zone.querySelector(".workerPlaces");
+  const hasWorkers = workerPlaces.querySelectorAll(".workerBar").length > 0;
+  
+  if (hasWorkers) {
+    zone.style.backgroundColor = "transparent";
+  } else {
+    zone.style.backgroundColor = "rgba(255, 0, 0, 0.241)";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".postes > div").forEach(zone => {
+    updateZoneBackground(zone);
+  });
+});
