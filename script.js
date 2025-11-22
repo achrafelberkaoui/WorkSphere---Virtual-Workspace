@@ -72,6 +72,11 @@ btnAddSubmit.addEventListener("click", (e) => {
     return;
   }
 
+  if (fromDate > toDate) {
+    alert("Date error: La date de début doit être avant la date de fin !");
+    return;
+  }
+
   // Worker (objet)
   const worker = {
     id: Date.now(),
