@@ -208,6 +208,9 @@ input:focus {
     flex-wrap: wrap;
     background-color: rgba(255, 0, 0, 0.241); 
 }
+h2{
+    display: none;
+}
 
 .assignBtn {
     position: absolute;

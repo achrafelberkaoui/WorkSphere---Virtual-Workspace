@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkSphere</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -21,7 +21,8 @@
     <main class="container">
         <!-- Modal Postes -->
         <section class="postes" id="addPostes">
-            <div class="poste1" id="poste1">
+            <h2>W3C</h2>
+            <div class="poste1" id="poste1"  data-max="5">
                 <div class="workerPlaces">
                     <p>Réception</p>
                     <!-- <div class="PosteWorker">
@@ -40,34 +41,34 @@
                     data-target="poste1">+</button>
             </div>
 
-            <div class="poste2" id="poste2">
+            <div class="poste2" id="poste2" data-max="5">
                 <div class="workerPlaces">
                     <p>Salle des serveurs</p>
                 </div>
                 <button class="assignBtn" data-role="it" data-role2="manager" data-role3="cleaning"
                     data-target="poste2">+</button>
             </div>
-            <div class="poste3" id="poste3">
+            <div class="poste3" id="poste3" data-max="5">
                 <div class="workerPlaces">
                     <p>Salle de sécurité</p>
                 </div>
                 <button class="assignBtn" data-role="security" data-role2="manager" data-role3="cleaning"
                     data-target="poste3">+</button>
             </div>
-            <div class="poste4" id="poste4">
+            <div class="poste4" id="poste4" data-max="5">
                 <div class="workerPlaces">
                     <p>Salle de conférence</p>
                 </div>
                 <button class="assignBtn" data-role="manager" data-role3="cleaning" data-target="poste4">+</button>
             </div>
-            <div class="poste5" id="poste5">
+            <div class="poste5" id="poste5" data-max="5">
                 <div class="workerPlaces">
                     <p>Salle du personnel</p>
                 </div>
                 <button class="assignBtn" data-role="cleaning" data-role2="manager" data-role3="cleaning"
                     data-target="poste5">+</button>
             </div>
-            <div class="poste6" id="poste6">
+            <div class="poste6" id="poste6" data-max="5">
                 <div class="workerPlaces">
                     <p>Salle d'archives</p>
                 </div>
@@ -77,6 +78,7 @@
 
         <!-- FORM SECTION -->
         <section class="containerForm" id="work-form">
+                        <h2>W3C</h2>
             <form class="form">
 
                 <!-- NAME -->
@@ -130,7 +132,7 @@
                 <!-- TELEPHONE -->
                 <div class="form__group">
                     <label class="form__label" for="tele">Téléphone</label>
-                    <input type="text" id="tele" class="input" placeholder="+212 600000000" min="1" required>
+                    <input type="text" id="tele" class="input" placeholder="+212 600000000" required>
                 </div>
 
                 <!-- EMAIL -->
@@ -150,8 +152,9 @@
         <section id="modaldetails" class="modaldetails">
             <div id="content"></div>
             <button id="close" class="close">X</button>
-            <img id="modalPhoto" src="" alt="Photo" style="width:80px; height:80px; border-radius:50%;">
-            <h3 id="modalName"></h3>
+            <img id="modalPhoto" src="img/iconParDefault.jpg" alt="Photo"
+                style="width:80px; height:80px; border-radius:50%;">
+            <h3 id="modalName">nom</h3>
             <p id="modalRole"></p>
             <p id="modalEmail"></p>
             <p id="modalTel"></p>
@@ -167,8 +170,6 @@
                 <div id="assignList"></div>
             </div>
         </section>
-        </div>
-
 
     </main>
 

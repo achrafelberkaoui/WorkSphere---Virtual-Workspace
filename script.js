@@ -184,13 +184,20 @@ btnAddExperience.addEventListener("click", () => {
 // Add Worker in Zone
 
 const affAssign = document.getElementById("assignModal");
+//affichage 
 document.querySelectorAll(".assignBtn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const clickId = btn.dataset.target;
     const zone = document.getElementById(clickId);
     const place = document.getElementById("assignList");
-
+    const zonePlace = zone.querySelector(".workerPlaces");
+    const max = Number(zone.dataset.max);
+    const totalChildren = zonePlace.children.length;
     place.innerHTML = "";
+    if (totalChildren >= max) {
+      alert("Cette zone est déjà pleine !");
+      return;
+    }
 
     const workerDisponible = workers.filter(
       (w) =>
@@ -199,7 +206,6 @@ document.querySelectorAll(".assignBtn").forEach((btn) => {
           w.RoleWorker === btn.dataset.role3) &&
         !w.zone
     );
-    console.log(btn.dataset.role);
 
     workerDisponible.forEach((w) => {
       const workerDisp = document.createElement("div");
@@ -214,19 +220,18 @@ document.querySelectorAll(".assignBtn").forEach((btn) => {
       <button class="deleList" data-id="${w.id}">X</button>
     `;
       workerDisp.addEventListener("click", (e) => {
-        if(e.target.classList.contains("deleList")){
+        if (e.target.classList.contains("deleList")) {
           return;
         }
-        const zonePlace = zone.querySelector(".workerPlaces");
         zonePlace.appendChild(workerDisp);
-        updateZoneBackground(zone); // backgroud red
+        updateZoneBackground(zone);
         w.zone = zone.id;
         affAssign.style.display = "none";
         addInBar();
-                workerDisp.querySelector(".deleList").style.display = "block";
+        workerDisp.querySelector(".deleList").style.display = "block";
       });
       const btnDelet = workerDisp.querySelector(".deleList");
-      btnDelet.addEventListener("click", function(e){
+      btnDelet.addEventListener("click", function (e) {
         e.stopPropagation();
         const id = btnDelet.dataset.id;
         deletWoreker(id);
@@ -242,28 +247,32 @@ closeLi.addEventListener("click", () => {
   affAssign.style.display = "none";
 });
 
-
-function deletWoreker(id){
-  console.log("id1",id)
+//delet worker
+function deletWoreker(id) {
+  console.log("id1", id)
   const worker = workers.find(w => w.id == id);
-    console.log("id2",id)
-  if(!worker){
+  console.log("id2", id)
+  if (!worker) {
     return;
   }
+  oldZone = document.getElementById(worker.zone);
   worker.zone = null;
   addInBar();
   const wokerDE = document.querySelector(`button[data-id ="${id}"]`);
-  if(wokerDE){
+  if (wokerDE) {
     wokerDE.parentElement.remove();
   }
+  if (oldZone) {
+    updateZoneBackground(oldZone);
+  }
+
 }
 
-
-// Function to check and update zone background
+//update zone background
 function updateZoneBackground(zone) {
   const workerPlaces = zone.querySelector(".workerPlaces");
   const hasWorkers = workerPlaces.querySelectorAll(".workerBar").length > 0;
-  
+
   if (hasWorkers) {
     zone.style.backgroundColor = "transparent";
   } else {
@@ -271,8 +280,6 @@ function updateZoneBackground(zone) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".postes > div").forEach(zone => {
-    updateZoneBackground(zone);
-  });
+document.querySelectorAll(".postes > div").forEach(zone => {
+  updateZoneBackground(zone);
 });
